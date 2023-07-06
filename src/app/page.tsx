@@ -1,4 +1,5 @@
 import QuickSearch from "./components/QuickSearch";
+import RecommendedTrips from "./components/RecommendedTrips";
 import TripsSearch from "./components/TripsSearch";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <div>
       <TripsSearch />
       <QuickSearch />
+      <RecommendedTrips />
     </div>
   );
 }

@@ -2,7 +2,8 @@
 
 import Divider from "@/components/Divider";
 import SearchIcons from "@/components/SearchIcons";
-import { TbBuilding, TbBuildingCottage } from "react-icons/tb";
+import { TbBuilding, TbBuildingCottage, TbHome2 } from "react-icons/tb";
+import { MdOutlineCottage } from "react-icons/md";
 
 const QuickSearch = () => {
   return (
@@ -17,17 +18,17 @@ const QuickSearch = () => {
 
         <SearchIcons
           icon={<TbBuildingCottage size={35} className="text-grayPrimary" />}
-          title="Fazenda"
+          title="Fazendas"
         />
 
         <SearchIcons
-          icon={<TbBuilding size={35} className="text-grayPrimary" />}
-          title="Resorts"
+          icon={<MdOutlineCottage size={35} className="text-grayPrimary" />}
+          title="Chalés"
         />
 
         <SearchIcons
-          icon={<TbBuildingCottage size={35} className="text-grayPrimary" />}
-          title="Fazenda"
+          icon={<TbHome2 size={35} className="text-grayPrimary" />}
+          title="Pousadas"
         />
       </div>
     </div>

@@ -4,11 +4,12 @@ import Button from "@/components/Button";
 import DatePicker from "@/components/DatePicker";
 import Input from "@/components/Input";
 import { Trips } from "@prisma/client";
-import { error } from "console";
 import { Controller, useForm } from "react-hook-form";
 
 interface ITripReservationProps {
-  trip: Trips;
+  tripMaxGuests: number;
+  tripEndDate: Date | null;
+  tripStartDate: Date | null;
 }
 
 interface ITripReservationForm {
@@ -17,17 +18,24 @@ interface ITripReservationForm {
   endDate: Date | null;
 }
 
-const TripReservation = ({ trip }: ITripReservationProps) => {
+const TripReservation = ({
+  tripEndDate,
+  tripMaxGuests,
+  tripStartDate,
+}: ITripReservationProps) => {
   const {
     handleSubmit,
     register,
     formState: { errors },
     control,
+    watch,
   } = useForm<ITripReservationForm>();
 
   const onSubmit = (data: any) => {
     console.log(data);
   };
+
+  const startDate = watch("startDate");
 
   return (
     <div className="flex flex-col px-5">
@@ -49,6 +57,7 @@ const TripReservation = ({ trip }: ITripReservationProps) => {
               selected={field.value}
               placeholderText="Data de Início"
               className="w-full"
+              minDate={tripStartDate}
             />
           )}
         />
@@ -70,6 +79,8 @@ const TripReservation = ({ trip }: ITripReservationProps) => {
               selected={field.value}
               placeholderText="Data Final"
               className="w-full"
+              maxDate={tripEndDate}
+              minDate={startDate ?? tripStartDate}
             />
           )}
         />
@@ -83,7 +94,7 @@ const TripReservation = ({ trip }: ITripReservationProps) => {
           },
         })}
         className="mt-4"
-        placeholder={`Numero de hóspedes (max: ${trip.maxGuests})`}
+        placeholder={`Numero de hóspedes (max: ${tripMaxGuests})`}
         error={!!errors?.guests}
         errorMessage={errors?.guests?.message}
       />

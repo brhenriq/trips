@@ -37,6 +37,7 @@ const TripsDetails = async ({ params }: IPageProps) => {
         tripEndDate={data.endDate}
         tripMaxGuests={data.maxGuests}
         tripStartDate={data.startDate}
+        tripPricePerDay={Number(data.pricePerDay)}
       />
       <TripDescription description={data.description} />
       <TripHighlights highlights={data.highlights} />

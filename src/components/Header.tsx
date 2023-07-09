@@ -25,11 +25,11 @@ const Header = () => {
 
   return (
     <div className="container mx-auto p-5 py-0 h-20 flex justify-between items-center ">
-      <div className="relative h-[32px] w-[182px]">
-        <Link href="/">
+      <Link href="/">
+        <div className="relative h-[32px] w-[182px]">
           <Image src="/logo.svg" alt="trips logo" fill />
-        </Link>
-      </div>
+        </div>
+      </Link>
 
       {status === "unauthenticated" && (
         <button

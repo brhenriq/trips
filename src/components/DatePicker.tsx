@@ -23,6 +23,7 @@ function DatePicker(
     <div className="flex w-full flex-col">
       <DatePickerReact
         locale="pt-BR"
+        dateFormat="dd/MM/yyyy"
         wrapperClassName="w-full"
         className={twMerge(
           className,

@@ -29,9 +29,11 @@ model Trips {
 }
 
 model TripReservations {
-  id     String @id @default(uuid())
-  tripId String
-  userId String
+  id        String   @id @default(uuid())
+  tripId    String
+  userId    String
+  startDate DateTime
+  endDate   DateTime
 
   trip Trips @relation(fields: [tripId], references: [id])
   user User  @relation(fields: [userId], references: [id])
